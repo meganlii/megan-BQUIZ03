@@ -8,10 +8,18 @@
 </head>
 <body>
 
+<!-- include：頁首、頁尾 統一版面 -->
 
+<!-- header -->
 <?php include 'header.php'; ?>
+
+<!-- main -->
 <main></main>
+
+<!-- footer -->
 <?php include 'footer.php'; ?>
 
 </body>
+
+<!-- html結束 -->
 </html>
