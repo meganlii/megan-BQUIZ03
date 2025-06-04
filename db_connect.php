@@ -1,21 +1,23 @@
 <?php
-
-// 建立資料庫基本資料，主要是資料庫系統名稱，主機名稱，使用的資料庫
-// host => 主機名稱或是IP
-// dbname => 使用的資料庫名稱
-// charset => 使用的字元集，一般選utf8即可
+// 1.建立 PDO連線：兩個變數
+    // 1-1 建立 資料庫基本資料，主要是資料庫系統名稱，主機名稱，使用的資料庫
+    // host => 主機名稱或是IP
+    // dbname => 使用的資料庫名稱
+    // charset => 使用的字元集，一般選utf8即可
 $dsn="mysql:host=localhost ; dbname=school ; charset=utf8";
 
-// 創建一個新的new PDO 物件，用來連接到資料庫
-// $dsn 是資料庫的連接字符串，'root' 是用戶名，''是密碼（這裡是空的）
+    // 1-2 創建 新的new PDO 物件，用來連接到資料庫
+    // $dsn 是資料庫的連接字符串，'root' 是用戶名，''是密碼（這裡是空的）
 $pdo=new PDO($dsn, 'root', '');
 
-// 定義了一個 SQL 查詢語句
+// 2. 建立 SQL 查詢指令
 // 從 students 表中 選取 所有欄位， 條件是 id 等於 10
 $sql="select * from students where id<=20";
 
-//一次取回多筆
-// 執行 SQL 查詢並使用 fetchAll(PDO::FETCH_ASSOC) 獲取所有結果
+// 3. 傳遞 SQL：使用 PDO函式
+// 4. 取得回傳值：以函式取得回傳值並指定給變數
+// $pdo->query($sql)->fetchAll()  一次取回多筆
+// 執行 SQL 查詢 並 使用 fetchAll(PDO::FETCH_ASSOC) 獲取所有結果
 // 返回一個二維關聯陣列，鍵名是欄位名稱
 $rows=$pdo  ->query($sql)   ->fetchAll(PDO::FETCH_ASSOC);
 // echo "<pre>";
