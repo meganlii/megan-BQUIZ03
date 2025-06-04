@@ -10,15 +10,17 @@ $dsn="mysql:host=localhost ; dbname=school ; charset=utf8";
     // $dsn 是資料庫的連接字符串，'root' 是用戶名，''是密碼（這裡是空的）
 $pdo=new PDO($dsn, 'root', '');
 
-// 2. 建立 SQL 查詢指令
+// 2. 建立 SQL 查詢指令 select查詢比對之用
 // 從 students 表中 選取 所有欄位， 條件是 id 等於 10
 $sql="select * from students where id<=20";
 
 // 3. 傳遞 SQL：使用 PDO函式
-// 4. 取得回傳值：以函式取得回傳值並指定給變數
+// sign up 新增/註冊 $pdo->exec($sql)
 // $pdo->query($sql)->fetchAll()  一次取回多筆
 // 執行 SQL 查詢 並 使用 fetchAll(PDO::FETCH_ASSOC) 獲取所有結果
-// 返回一個二維關聯陣列，鍵名是欄位名稱
+
+// 4. 取得回傳值：以函式取得回傳值，並指定給變數
+// 返回一個 二維關聯陣列，鍵名是欄位名稱
 $rows=$pdo  ->query($sql)   ->fetchAll(PDO::FETCH_ASSOC);
 // echo "<pre>";
 // print_r($rows);;
